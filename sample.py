@@ -11,11 +11,11 @@ def read_json(filename):
         loaded_data = json.load(json_file)
     return loaded_data
 
-def delete_json_content(filename):
-    """指定したJSONファイルの内容を削除する関数"""
-    empty_data = {}
-    with open(filename, 'w') as json_file:
-        json.dump(empty_data, json_file)
+def clear_json_file(file_path):
+    # ファイルを空文字列で上書きする
+    with open(file_path, 'w') as f:
+        f.write('')
+
 
 # 書き込むデータ
 data_to_write = {'key1': 'value1', 'key2': 'value2'}
@@ -28,5 +28,5 @@ loaded_data = read_json('data.json')
 print("Loaded data:", loaded_data)
 
 # JSONファイルの内容を削除する
-delete_json_content('data.json')
+clear_json_file('data.json')
 print("Content deleted.")
